@@ -20,7 +20,7 @@ export class AuthService {
         name
       );
       if (userAccount) {
-        console.log(userAccount);
+        console.log("Appwrite Service :: Account Created Successfully");
         return this.login({ email, password });
       } else {
         return userAccount;
@@ -33,7 +33,7 @@ export class AuthService {
   // Login
   async login({ email, password }) {
     try {
-      console.log(email, password);
+      console.log("Appwrite Services :: logged In successfully");
       await this.account.createEmailSession(email, password);
       return 1;
     } catch (error) {
@@ -54,7 +54,8 @@ export class AuthService {
   // Logout
   async logout() {
     try {
-      await this.account.deleteSessions();
+      const status = await this.account.deleteSessions();
+      if (status) console.log("Appwrite Services :: Logged out successfully");
     } catch (error) {
       console.log("Appwrite serive :: logout :: error", error);
     }
