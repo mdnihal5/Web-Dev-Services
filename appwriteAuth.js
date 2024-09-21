@@ -1,3 +1,4 @@
+https://p.hck.re/DFLL
 import conf from "../config/conf";
 import { Client, Account, ID } from "appwrite";
 export class AuthService {
